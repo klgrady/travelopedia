@@ -5,6 +5,7 @@ import java.util.*;
 public class TravelopediaMenu {
     static Map<String,String> menuItems = new LinkedHashMap<>();
     static String prompt = "Your choice: ";
+    static final String errorMessage = "I'm sorry. I didn't understand your request. Please choose a single character from the following menu:";
 
     static String getPrompt() {
         return prompt;
@@ -28,7 +29,7 @@ public class TravelopediaMenu {
                 throw new InputMismatchException();
             }
         } catch (InputMismatchException e) {
-            System.out.println("I'm sorry. I didn't understand your request. Please choose a single character from the following menu:");
+            System.out.println(errorMessage);
             promptForInput();
         }
         return input;

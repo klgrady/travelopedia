@@ -11,6 +11,7 @@ public class SearchMenu extends TravelopediaMenu {
         menuItems.put("p", "Search by ticket price range");
         menuItems.put("c", "Find the cheapest flight");
         menuItems.put("m", "Return to the main menu");
+        menuItems.put("x", "Exit Travelopedia");
     }
 
     private static void followUpInput(String input) {
@@ -30,7 +31,7 @@ public class SearchMenu extends TravelopediaMenu {
             case "m":
                 break;
             default:
-                System.out.println("I'm sorry. I didn't understand your request. Please choose a single character from the following menu:");
+                System.out.println();
                 promptForInput();
         }
     }

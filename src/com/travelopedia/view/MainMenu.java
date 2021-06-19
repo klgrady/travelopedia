@@ -1,5 +1,7 @@
 package com.travelopedia.view;
 
+import java.util.Map;
+
 public class MainMenu extends TravelopediaMenu {
 
     public static void setMenuItems() {
@@ -9,4 +11,8 @@ public class MainMenu extends TravelopediaMenu {
         menuItems.put("x", "Exit Travelopedia");
     }
 
+    // for testing purposes only
+    static Map<String,String> getMenuItems() {
+        return menuItems;
+    }
 }

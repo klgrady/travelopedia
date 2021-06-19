@@ -2,22 +2,16 @@ package com.travelopedia.view;
 
 public class ViewMenu extends TravelopediaMenu {
 
-    public ViewMenu() {
-        setMenuItems();
-    }
-
     static void setMenuItems() {
         menuItems.clear();
         menuItems.put("e", "Locate all flights associated with your email address");
-        menuItems.put("a", "Locate a flight by Flight ID");
-        menuItems.put("x", "Return to the main menu");
-    }
-
-    public static void displayMenu() {
-
+        menuItems.put("i", "Locate a flight by Flight ID");
+        menuItems.put("m", "Return to the main menu");
+        menuItems.put("x", "Exit Travelopedia");
     }
 
     public static String doSubMenu() {
+        setMenuItems();
         displayMenu();
         return promptForInput();
     }
