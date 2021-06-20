@@ -11,14 +11,9 @@ import java.util.Map;
 public class MainMenuTest extends TestCase {
     Map<String,String> testMap;
 
-    @Before
-    public void initialize() {
-    }
-
     @Test
     public void testMainMenuOutputNotNull() {
         MainMenu.setMenuItems();
-        Map<String,String> menuItems = MainMenu.getMenuItems();
         assertNotNull(MainMenu.getMenuItems());
     }
 
