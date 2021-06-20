@@ -11,8 +11,7 @@ import static org.junit.Assert.*;
 
 public class TripTest {
     public Trip trip;
-    public List<Flight.Leg> flightLegs;
-    public Flight flight, flight1;
+    public Flight flight1;
     public Map<LocalDateTime, List<String>> itinerary;
 
     @Before
@@ -55,7 +54,7 @@ public class TripTest {
 
 
         itinerary.put(LocalDateTime.of(2021, Month.MAY, 20, 17, 50), leg1);
-        itinerary.put(LocalDateTime.of(2021, Month.MAY, 22, 9, 15), leg2);
+        itinerary.put(LocalDateTime.of(2021, Month.MAY, 22, 9, 15),  leg2);
     }
 
     @Test

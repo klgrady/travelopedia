@@ -12,8 +12,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class FlightTest {
-    public List<Flight.Leg> flightLegs;
-    public Flight flight, flight1;
+    public Flight flight1;
     public Map<LocalDateTime, List<String>> itinerary;
 
     @Before
