@@ -1,20 +1,19 @@
 package com.travelopedia.view;
 
-import junit.framework.TestCase;
-import org.junit.Before;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-public class MainMenuTest extends TestCase {
+public class MainMenuTest {
     Map<String,String> testMap;
 
     @Test
     public void testMainMenuOutputNotNull() {
         MainMenu.setMenuItems();
-        assertNotNull(MainMenu.getMenuItems());
+        Assert.assertNotNull(MainMenu.getMenuItems());
     }
 
     @Test
@@ -24,6 +23,6 @@ public class MainMenuTest extends TestCase {
         testMap.put("v", "View my trip");
         testMap.put("x", "Exit Travelopedia");
         MainMenu.setMenuItems();
-        assertEquals(testMap, MainMenu.getMenuItems());
+        Assert.assertEquals(testMap, MainMenu.getMenuItems());
     }
 }

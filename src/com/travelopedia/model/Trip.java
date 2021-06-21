@@ -32,5 +32,4 @@ class Trip {
     public void setFlightIds(Collection<Flight> flightIds) {
         this.flights = flights;
     }
-
 }
