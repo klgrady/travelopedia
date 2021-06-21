@@ -18,7 +18,7 @@ public class SearchMenuTest {
 
     @Before
     public void initiate() {
-        InputStream systemInStash = System.in;
+        systemInStash = System.in;
         testMap = new LinkedHashMap<>();
     }
 

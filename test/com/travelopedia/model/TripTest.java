@@ -70,5 +70,4 @@ public class TripTest {
             assertArrayEquals(flight1.getItinerary().entrySet().toArray(), flight.getItinerary().entrySet().toArray());
         }
     }
-
 }

@@ -34,5 +34,4 @@ public class TravelopediaMenu {
         }
         return input;
     }
-
 }
