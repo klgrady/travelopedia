@@ -16,7 +16,7 @@ public class TripTest {
 
     @Before
     public void initialize() {
-        trip = new Trip(1L);
+        trip = new Trip(1L, 2L);
         flight1 = new Flight();
         flight1.addLeg(
                 LocalDateTime.of(2021, Month.MAY, 20, 17, 50),

@@ -30,6 +30,7 @@ public class TravelopediaData {
         loadCustomerData(cList);
         //open flights.csv and import to flightList
         fList = loadData(path + "flights.csv");
+        loadFlightData(fList);
     }
 
     private static void loadCustomerData(List<String> cList) {
