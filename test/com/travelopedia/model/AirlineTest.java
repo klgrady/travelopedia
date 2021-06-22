@@ -7,19 +7,19 @@ public class AirlineTest {
 
     @Test
     public void airlineReturnsCorrectNames() {
-        assertEquals("Average Airlines", Airline.AVERAGE.getName());
-        assertEquals("Ultimate Airlines", Airline.ULTIMATE.getName());
-        assertEquals("Serviceable Airlines", Airline.SERVICEABLE.getName());
-        assertEquals("Best Airlines", Airline.BEST.getName());
-        assertEquals("CheapSeats Airlines", Airline.CHEAP.getName());
+        assertEquals("Average Airlines", Airline.AA.getName());
+        assertEquals("Ultimate Airlines", Airline.UA.getName());
+        assertEquals("Serviceable Airlines", Airline.SA.getName());
+        assertEquals("Best Airlines", Airline.BA.getName());
+        assertEquals("CheapSeats Airlines", Airline.CA.getName());
     }
 
     @Test
     public void airlineReturnsCorrectCodes() {
-        assertEquals("AA", Airline.AVERAGE.getCode());
-        assertEquals("UA", Airline.ULTIMATE.getCode());
-        assertEquals("SA", Airline.SERVICEABLE.getCode());
-        assertEquals("BA", Airline.BEST.getCode());
-        assertEquals("CA", Airline.CHEAP.getCode());
+        assertEquals("AA", Airline.AA.getCode());
+        assertEquals("UA", Airline.UA.getCode());
+        assertEquals("SA", Airline.SA.getCode());
+        assertEquals("BA", Airline.BA.getCode());
+        assertEquals("CA", Airline.CA.getCode());
     }
 }

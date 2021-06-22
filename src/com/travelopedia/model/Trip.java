@@ -5,16 +5,27 @@ import java.util.Collection;
 
 public class Trip {
     Long tripId = Long.valueOf(0);
+    Long customerId = Long.valueOf(0);
     Collection<Flight> flights;
+
     // Hotel reservations TBD
 
-    public Trip(long id) {
+    public Trip(long id, long customerId) {
         setTripId(Long.valueOf(id));
+        setCustomerId(Long.valueOf(customerId));
         flights = new ArrayList<>();
     }
 
     public void addFlight(Flight flight) {
         flights.add(flight);
+    }
+
+    public void setCustomerId(Long id) {
+        customerId = id;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
     }
 
     public Long getTripId() {
