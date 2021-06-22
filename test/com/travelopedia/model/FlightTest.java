@@ -19,20 +19,22 @@ public class FlightTest {
     public void initialize() {
         flight1 = new Flight();
         flight1.addLeg(
+                1L,
                 LocalDateTime.of(2021, Month.MAY, 20, 17, 50),
                 LocationCode.DEN,
                 LocalDateTime.of(2021, Month.MAY, 20, 22, 15),
-                LocationCode.CLE, Airline.SERVICEABLE,
+                LocationCode.CLE, Airline.SA,
                 349.0,
                 500,
                 400,
                 100);
         flight1.addLeg(
+                2L,
                 LocalDateTime.of(2021, Month.MAY, 22, 9, 15),
                 LocationCode.CLE,
                 LocalDateTime.of(2021, Month.MAY, 22, 14, 0),
                 LocationCode.DEN,
-                Airline.SERVICEABLE,
+                Airline.SA,
                 150.0,
                 400,
                 200,
@@ -43,6 +45,7 @@ public class FlightTest {
         List<String> leg1 = new ArrayList<>();
         List<String> leg2 = new ArrayList<>();
 
+        leg1.add("1");
         leg1.add("2021-05-20T17:50");
         leg1.add("Denver International");
         leg1.add("2021-05-20T22:15");
@@ -53,6 +56,7 @@ public class FlightTest {
         leg1.add("400");
         leg1.add("100");
 
+        leg2.add("2");
         leg2.add("2021-05-22T09:15");
         leg2.add("Cleveland Hopkins International");
         leg2.add("2021-05-22T14:00");
