@@ -1,6 +1,6 @@
 package com.travelopedia.model;
 
-enum Airline {
+public enum Airline {
     AVERAGE("Average Airlines", "AA"),
     ULTIMATE("Ultimate Airlines", "UA"),
     SERVICEABLE("Serviceable Airlines", "SA"),

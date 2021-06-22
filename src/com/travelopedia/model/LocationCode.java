@@ -1,6 +1,6 @@
 package com.travelopedia.model;
 
-enum LocationCode {
+public enum LocationCode {
     SAN("San Diego, CA", "Hartfield International"),
     PHX("Phoenix, AZ", "Phoenix Sky Harbor International"),
     DEN("Denver, CO", "Denver International"),

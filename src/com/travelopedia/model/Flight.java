@@ -3,16 +3,27 @@ package com.travelopedia.model;
 import java.time.LocalDateTime;
 import java.util.*;
 
-class Flight {
+public class Flight {
     private List<Leg> legs = new ArrayList<>();
+
+    public Flight() {
+        //no-op
+    }
+    public Flight(Long id, String airline, String departureCity, String arrivalCity, String departureTime, String arrivalTime, String seatCapacity, String seatsAvailable, String seatsBooked) {
+        addLeg(LocalDateTime.parse(departureTime), LocationCode.valueOf(departureCity), LocalDateTime.parse(arrivalTime), LocationCode.valueOf(arrivalCity), Airline.valueOf(airline), 399.0,
+                Integer.parseInt(seatCapacity), Integer.parseInt(seatsAvailable), Integer.parseInt(seatsBooked));
+    }
 
     public void addLeg(LocalDateTime departureDateTime,
                        LocationCode departureLocation,
                        LocalDateTime arrivalDateTime,
                        LocationCode arrivalLocation,
                        Airline carrier,
-                       double price) {
-        legs.add(new Leg(departureDateTime, departureLocation, arrivalDateTime, arrivalLocation, carrier, price));
+                       double price,
+                       int seatCapacity,
+                       int seatsAvailable,
+                       int seatsBooked) {
+        legs.add(new Leg(departureDateTime, departureLocation, arrivalDateTime, arrivalLocation, carrier, price, seatCapacity, seatsAvailable, seatsBooked));
     }
     public List<Leg> getLegs() {
         return legs;
@@ -43,19 +54,28 @@ class Flight {
         LocationCode departureLocation;
         LocationCode arrivalLocation;
         double price;
+        int seatCapacity;
+        int seatsAvailable;
+        int seatsBooked;
 
         public Leg(LocalDateTime departureDateTime,
                    LocationCode departureLocation,
                    LocalDateTime arrivalDateTime,
                    LocationCode arrivalLocation,
                    Airline carrier,
-                   double price) {
+                   double price,
+                   int seatCapacity,
+                   int seatsAvailable,
+                   int seatsBooked) {
             this.departureDateTime = departureDateTime;
             this.arrivalDateTime = arrivalDateTime;
             this.carrier = carrier;
             this.departureLocation = departureLocation;
             this.arrivalLocation = arrivalLocation;
             this.price = price;
+            this.seatCapacity = seatCapacity;
+            this.seatsAvailable = seatsAvailable;
+            this.seatsBooked = seatsBooked;
         }
 
         private LocalDateTime getDepartureDateTime() {
@@ -119,6 +139,18 @@ class Flight {
 
         private double getPrice() {
             return price;
+        }
+
+        public int getSeatCapacity() {
+            return seatCapacity;
+        }
+
+        public int getSeatsAvailable() {
+            return seatsAvailable;
+        }
+
+        public int getSeatsBooked() {
+            return seatsBooked;
         }
 
         private void setPrice(double price) {

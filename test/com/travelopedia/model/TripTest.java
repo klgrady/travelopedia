@@ -23,14 +23,20 @@ public class TripTest {
                 LocationCode.DEN,
                 LocalDateTime.of(2021, Month.MAY, 20, 22, 15),
                 LocationCode.CLE, Airline.SERVICEABLE,
-                349.0);
+                349.0,
+                500,
+                400,
+                100);
         flight1.addLeg(
                 LocalDateTime.of(2021, Month.MAY, 22, 9, 15),
                 LocationCode.CLE,
                 LocalDateTime.of(2021, Month.MAY, 22, 14, 0),
                 LocationCode.DEN,
                 Airline.SERVICEABLE,
-                150.0);
+                150.0,
+                400,
+                200,
+                200);
 
         trip.addFlight(flight1);
 
@@ -44,6 +50,10 @@ public class TripTest {
         leg1.add("Cleveland Hopkins International");
         leg1.add("Serviceable Airlines");
         leg1.add("349.0");
+        leg1.add("500");
+        leg1.add("400");
+        leg1.add("100");
+
 
         leg2.add("2021-05-22T09:15");
         leg2.add("Cleveland Hopkins International");
@@ -51,6 +61,9 @@ public class TripTest {
         leg2.add("Denver International");
         leg2.add("Serviceable Airlines");
         leg2.add("150.0");
+        leg2.add("400");
+        leg2.add("200");
+        leg2.add("200");
 
 
         itinerary.put(LocalDateTime.of(2021, Month.MAY, 20, 17, 50), leg1);

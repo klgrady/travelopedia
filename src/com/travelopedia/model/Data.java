@@ -3,10 +3,12 @@ package com.travelopedia.model;
 import java.util.ArrayList;
 
 class Data {
+
     public static void main(String[] args) {
 
         ArrayList flightList = new ArrayList();
 
+        // open
         flightList.add(" TO SAN-San Diego, CA");
         flightList.add("SAN-San Diego, CA TO PHX-Phoenix,AZ");
         flightList.add("SAN-San Diego, CA TO DEN-Denver, CO");

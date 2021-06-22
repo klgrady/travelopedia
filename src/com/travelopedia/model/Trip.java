@@ -3,7 +3,7 @@ package com.travelopedia.model;
 import java.util.ArrayList;
 import java.util.Collection;
 
-class Trip {
+public class Trip {
     Long tripId = Long.valueOf(0);
     Collection<Flight> flights;
     // Hotel reservations TBD
