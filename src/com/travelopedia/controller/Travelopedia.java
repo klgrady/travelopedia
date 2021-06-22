@@ -8,6 +8,10 @@ import com.travelopedia.view.ViewMenu;
 public class Travelopedia {
 
     public static void main(String[] args) {
+        // consoleStart();
+    }
+
+    private static void consoleStart() {
         String choice = getMainMenuOptions();
         while (!choice.toLowerCase().equals("x")) {
             switch (choice.toLowerCase()) {
@@ -23,8 +27,8 @@ public class Travelopedia {
             System.out.println();
         }
         System.out.println("Thank you for traveling with Travelopedia!");
-    }
 
+    }
     private static String getMainMenuOptions() {
         String choice;
         MainMenu.setMenuItems();
