@@ -52,17 +52,20 @@ public class TravelopediaData {
     }
 
     private static void loadFlightData(List<String> fList) {
-        Long id = Long.valueOf(fList.get(0));
-        String airline = fList.get(1);
-        String departureCity = fList.get(2);
-        String arrivalCity = fList.get(3);
-        String departureTime = fList.get(4);
-        String arrivalTime = fList.get(5);
-        String seatCapacity = fList.get(6);
-        String seatsAvailable = fList.get(7);
-        String seatsBooked = fList.get(8);
+        for (String line : fList) {
+            String[] tempList = line.split(",");
+            Long id = Long.valueOf(fList.get(0));
+            String airline = tempList[1];
+            String departureCity = tempList[2];
+            String arrivalCity = tempList[3];
+            String departureTime = tempList[4];
+            String arrivalTime = tempList[5];
+            String seatCapacity = tempList[6];
+            String seatsAvailable = tempList[7];
+            String seatsBooked = tempList[8];
 
-        flightList.put(id, new Flight(id, airline, departureCity, arrivalCity, departureTime, arrivalTime, seatCapacity, seatsAvailable, seatsBooked));
+            flightList.put(id, new Flight(id, airline, departureCity, arrivalCity, departureTime, arrivalTime, seatCapacity, seatsAvailable, seatsBooked));
+        }
     }
 
     private static List<String> loadData(String file) throws IOException {
