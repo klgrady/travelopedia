@@ -1,3 +1,5 @@
+package com.travelopedia.view;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -24,14 +26,15 @@ public class TicketSelection extends JPanel{
         JFrame f = new JFrame("ListPanel");
         f.setTitle("Flight Selection");
         f.setPreferredSize(new Dimension(600,400));
-        f.setResizable(false);
+        //f.setResizable(false);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JSplitPane jSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
         JPanel topPanel = new JPanel();
         JScrollPane scrollPane = new JScrollPane(table1);
         topPanel.add(scrollPane);
-        topPanel.setSize(550,275);
+        topPanel.setSize(750,275);
         JPanel bottomPanel = new JPanel();
+        bookButton = new JButton("Book");
         bottomPanel.add(bookButton);
         jSplitPane.setTopComponent(topPanel);
         jSplitPane.setBottomComponent(bottomPanel);
@@ -48,7 +51,6 @@ public class TicketSelection extends JPanel{
 
             @Override
             public void run() {
-                String[] data = {"Math", "Computer", "Physics", "Chemistry"};
                 new TicketSelection().display();
             }
         });
