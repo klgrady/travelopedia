@@ -11,16 +11,16 @@ public class Flight {
     }
     public Flight(Long id, String airline, String departureCity, String arrivalCity, String departureTime,
                   String arrivalTime, String seatCapacity, String seatsAvailable, String seatsBooked) {
-        addLeg(id, LocalDateTime.parse(departureTime.trim()), LocationCode.valueOf(departureCity.trim()),
-                LocalDateTime.parse(arrivalTime.trim()), LocationCode.valueOf(arrivalCity.trim()), Airline.valueOf(airline.trim()), 399.0,
+        addLeg(id, LocalDateTime.parse(departureTime.trim()), Airport.valueOf(departureCity.trim()),
+                LocalDateTime.parse(arrivalTime.trim()), Airport.valueOf(arrivalCity.trim()), Airline.valueOf(airline.trim()), 399.0,
                 Integer.parseInt(seatCapacity.trim()), Integer.parseInt(seatsAvailable.trim()), Integer.parseInt(seatsBooked.trim()));
     }
 
     public void addLeg(Long id,
                        LocalDateTime departureDateTime,
-                       LocationCode departureLocation,
+                       Airport departureLocation,
                        LocalDateTime arrivalDateTime,
-                       LocationCode arrivalLocation,
+                       Airport arrivalLocation,
                        Airline carrier,
                        double price,
                        int seatCapacity,
@@ -42,6 +42,7 @@ public class Flight {
             legInfo.add(leg.getArrivalLocationName());
             legInfo.add(leg.getCarrierName());
             legInfo.add(Double.toString(leg.getPrice()));
+            legInfo.add(Integer.toString(leg.getSeatsAvailable()));
             itinerary.put(leg.getDepartureDateTime(), legInfo);
         }
         return itinerary;
@@ -51,14 +52,18 @@ public class Flight {
         return legs;
     }
 
+    public LocalDateTime getDepartureDate() {
+        return legs.get(0).departureDateTime;
+    }
+
     //inner class
     class Leg {
         Long id;
         LocalDateTime departureDateTime;
         LocalDateTime arrivalDateTime;
         Airline carrier;
-        LocationCode departureLocation;
-        LocationCode arrivalLocation;
+        Airport departureLocation;
+        Airport arrivalLocation;
         double price;
         int seatCapacity;
         int seatsAvailable;
@@ -66,9 +71,9 @@ public class Flight {
 
         public Leg(Long id,
                    LocalDateTime departureDateTime,
-                   LocationCode departureLocation,
+                   Airport departureLocation,
                    LocalDateTime arrivalDateTime,
-                   LocationCode arrivalLocation,
+                   Airport arrivalLocation,
                    Airline carrier,
                    double price,
                    int seatCapacity,
@@ -114,7 +119,7 @@ public class Flight {
             this.arrivalDateTime = arrivalDateTime;
         }
 
-        private LocationCode getDepartureLocation() {
+        private Airport getDepartureLocation() {
             return departureLocation;
         }
 
@@ -126,11 +131,11 @@ public class Flight {
             return departureLocation.getName();
         }
 
-        private void setDepartureLocation(LocationCode departureLocation) {
+        private void setDepartureLocation(Airport departureLocation) {
             this.departureLocation = departureLocation;
         }
 
-        private LocationCode getArrivalLocation() {
+        private Airport getArrivalLocation() {
             return arrivalLocation;
         }
         private String getArrivalLocationGeo() {
@@ -141,7 +146,7 @@ public class Flight {
             return arrivalLocation.getName();
         }
 
-        private void setArrivalLocation(LocationCode arrivalLocation) {
+        private void setArrivalLocation(Airport arrivalLocation) {
             this.arrivalLocation = arrivalLocation;
         }
 
@@ -166,11 +171,26 @@ public class Flight {
         }
 
 
-        public Object getId() {
+        public Long getId() {
             return id;
         }
 
     }
+
+    public Long getId() {
+        return getLegs().get(0).getId();
+    }
+
+    public boolean isSeatAvailable() {
+        boolean result = true;
+        for (Leg leg : getLegs()) {
+            if (leg.getSeatsAvailable() == 0) {
+                result = false;
+            }
+        }
+        return result;
+    }
+
     public String dumpFlights() {
         String result = "";
         for (Leg leg : getLegs()) {
@@ -180,6 +200,7 @@ public class Flight {
         }
         return result;
     }
+
     public String toString() {
         String result = "Flights:\n";
         for (Leg leg : getLegs()) {

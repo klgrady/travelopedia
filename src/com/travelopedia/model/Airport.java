@@ -1,6 +1,6 @@
 package com.travelopedia.model;
 
-public enum LocationCode {
+public enum Airport {
     SAN("San Diego, CA", "Hartfield International"),
     PHX("Phoenix, AZ", "Phoenix Sky Harbor International"),
     DEN("Denver, CO", "Denver International"),
@@ -18,7 +18,7 @@ public enum LocationCode {
 
     private String location;
     private String name;
-    LocationCode(String location, String name) {
+    Airport(String location, String name) {
         this.location = location;
         this.name = name;
     }
@@ -30,4 +30,5 @@ public enum LocationCode {
     public String getName() {
         return name;
     }
+
 }

@@ -21,9 +21,9 @@ public class TripTest {
         flight1.addLeg(
                 1L,
                 LocalDateTime.of(2021, Month.MAY, 20, 17, 50),
-                LocationCode.DEN,
+                Airport.DEN,
                 LocalDateTime.of(2021, Month.MAY, 20, 22, 15),
-                LocationCode.CLE, Airline.SA,
+                Airport.CLE, Airline.SA,
                 349.0,
                 500,
                 400,
@@ -31,9 +31,9 @@ public class TripTest {
         flight1.addLeg(
                 2L,
                 LocalDateTime.of(2021, Month.MAY, 22, 9, 15),
-                LocationCode.CLE,
+                Airport.CLE,
                 LocalDateTime.of(2021, Month.MAY, 22, 14, 0),
-                LocationCode.DEN,
+                Airport.DEN,
                 Airline.SA,
                 150.0,
                 400,
@@ -76,7 +76,7 @@ public class TripTest {
 
     @Test
     public void tripContainsCorrectNumberOfFlights() {
-        Collection<Flight> flights = new ArrayList<>();
+        List<Flight> flights = new ArrayList<>();
         flights.add(flight1);
         assertEquals(flights.size(), trip.getFlights().size());
     }
