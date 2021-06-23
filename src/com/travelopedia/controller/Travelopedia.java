@@ -11,7 +11,7 @@ public class Travelopedia {
         // consoleStart();
     }
 
-    private static void consoleStart() {
+/*    private static void consoleStart() {
         String choice = getMainMenuOptions();
         while (!choice.toLowerCase().equals("x")) {
             switch (choice.toLowerCase()) {
@@ -35,6 +35,6 @@ public class Travelopedia {
         MainMenu.displayMenu();
         choice = MainMenu.promptForInput();
         return choice;
-    }
+    }*/
 
 }
