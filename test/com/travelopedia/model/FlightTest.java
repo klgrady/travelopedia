@@ -47,24 +47,20 @@ public class FlightTest {
 
         leg1.add("1");
         leg1.add("2021-05-20T17:50");
-        leg1.add("Denver International");
+        leg1.add("DEN");
         leg1.add("2021-05-20T22:15");
-        leg1.add("Cleveland Hopkins International");
+        leg1.add("CLE");
         leg1.add("Serviceable Airlines");
         leg1.add("349.0");
-        leg1.add("500");
         leg1.add("400");
-        leg1.add("100");
 
         leg2.add("2");
         leg2.add("2021-05-22T09:15");
-        leg2.add("Cleveland Hopkins International");
+        leg2.add("CLE");
         leg2.add("2021-05-22T14:00");
-        leg2.add("Denver International");
+        leg2.add("DEN");
         leg2.add("Serviceable Airlines");
         leg2.add("150.0");
-        leg2.add("400");
-        leg2.add("200");
         leg2.add("200");
 
 
