@@ -45,7 +45,7 @@ public class TicketSelection extends JPanel{
         f.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         EventQueue.invokeLater(new Runnable() {
 
@@ -55,5 +55,5 @@ public class TicketSelection extends JPanel{
             }
         });
 
-    }
+    }*/
 }
