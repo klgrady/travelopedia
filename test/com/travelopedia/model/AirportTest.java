@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class LocationCodeTest {
+public class AirportTest {
     @Test
     public void locationCodeReturnsCorrectLocations() {
         assertEquals("San Diego, CA", Airport.SAN.getAirportCity());
