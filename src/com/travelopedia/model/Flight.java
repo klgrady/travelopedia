@@ -124,11 +124,11 @@ public class Flight {
         }
 
         private String getDepartureLocationGeo() {
-            return departureLocation.getLocation();
+            return departureLocation.getAirportCity();
         }
 
         private String getDepartureLocationName() {
-            return departureLocation.getName();
+            return departureLocation.getAirportCode();
         }
 
         private void setDepartureLocation(Airport departureLocation) {
@@ -139,11 +139,11 @@ public class Flight {
             return arrivalLocation;
         }
         private String getArrivalLocationGeo() {
-            return arrivalLocation.getLocation();
+            return arrivalLocation.getAirportCity();
         }
 
         private String getArrivalLocationName() {
-            return arrivalLocation.getName();
+            return arrivalLocation.getAirportCode();
         }
 
         private void setArrivalLocation(Airport arrivalLocation) {

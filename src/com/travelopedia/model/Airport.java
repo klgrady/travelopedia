@@ -1,34 +1,44 @@
 package com.travelopedia.model;
 
 public enum Airport {
-    SAN("San Diego, CA", "Hartfield International"),
-    PHX("Phoenix, AZ", "Phoenix Sky Harbor International"),
-    DEN("Denver, CO", "Denver International"),
-    IAD("Washington, DC", "Washington Dulles International"),
-    MIA("Miami, FL", "Miami International"),
-    SEA("Seattle, WA", "Seattle Tacoma International"),
-    SFO("San Francisco, CA", "San Francisco International"),
-    LGA("New York City, NY", "La Guardia"),
-    ORF("Norfolk, VA", "Norfolk International"),
-    CLE("Cleveland,OH", "Cleveland Hopkins International"),
-    LAX("Los Angeles, CA", "Los Angeles International"),
-    BUF("Buffalo, NY", "Buffalo Niagara International"),
-    EWR("Newark, NJ", "Newark International"),
-    MSP("Minneapolis, MN", "Minneapolis St. Paul International");
+    SAN(1,"San Diego, CA", "Hartfield International"),
+    PHX(2,"Phoenix, AZ", "Phoenix Sky Harbor International"),
+    DEN(14,"Denver, CO", "Denver International"),
+    IAD(3,"Washington, DC", "Washington Dulles International"),
+    MIA(4,"Miami, FL", "Miami International"),
+    SEA(5,"Seattle, WA", "Seattle Tacoma International"),
+    SFO(6,"San Francisco, CA", "San Francisco International"),
+    LGA(7,"New York City, NY", "La Guardia"),
+    ORF(8,"Norfolk, VA", "Norfolk International"),
+    CLE(9,"Cleveland,OH", "Cleveland Hopkins International"),
+    LAX(10,"Los Angeles, CA", "Los Angeles International"),
+    BUF(11,"Buffalo, NY", "Buffalo Niagara International"),
+    EWR(12,"Newark, NJ", "Newark International"),
+    MSP(13,"Minneapolis, MN", "Minneapolis St. Paul International");
 
-    private String location;
-    private String name;
-    Airport(String location, String name) {
-        this.location = location;
-        this.name = name;
+
+
+    private int AirportID;
+    private String AirportCode;
+    private String AirportCity;
+
+
+
+    Airport(int airportID, String airportCode, String airportCity) {
+        this.AirportID = airportID;
+        this.AirportCode = airportCode;
+        this.AirportCity = airportCity;
     }
 
-    public String getLocation() {
-        return location;
+    public int getAirportID() {
+        return AirportID;
     }
 
-    public String getName() {
-        return name;
+    public String getAirportCode() {
+        return AirportCode;
     }
 
+    public String getAirportCity() {
+        return AirportCity;
+    }
 }
