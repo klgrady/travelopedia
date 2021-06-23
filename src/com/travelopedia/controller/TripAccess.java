@@ -5,10 +5,7 @@ import com.travelopedia.model.Trip;
 import com.travelopedia.model.data.TravelopediaData;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class TripAccess {
     private static final int RESULT_LIMIT = 20;
@@ -28,5 +25,10 @@ public class TripAccess {
             }
         }
         return results;
+    }
+
+    public static Long bookNewTrip(Long customerID, Long[] flightID) {
+        List<Long> flightsInTrip = Arrays.asList(flightID);
+        return TravelopediaData.recordNewTrip(flightsInTrip, customerID);  // returns TripID as a Long
     }
 }
