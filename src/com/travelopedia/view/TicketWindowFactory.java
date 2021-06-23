@@ -11,10 +11,10 @@ public class TicketWindowFactory {
     public static TicketWindow createTicketWindow(){
         return new TicketWindow();
     }
-
-    public static TicketConfirmation createTicketConfirmationWindow(){
-        return new TicketConfirmation();
-    }
+//
+//    public static TicketConfirmation createTicketConfirmationWindow(){
+//        return new TicketConfirmation();
+//    }
 
     public static TicketSelection createTicketSelectionWindow(){
         return new TicketSelection();
