@@ -11,10 +11,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * The Data
@@ -95,8 +92,33 @@ public class TravelopediaData {
         return tripList;
     }
 
+    private static void addToTripList(Long key, Trip trip) {
+        tripList.put(key, trip);
+    }
+
+    public static Long recordNewTrip(List<Long> flightsInTrip, Long customerId) {
+        // create new TripID that doesn't already exist
+        Long tripId = 0L;
+        while (tripId > 0L && !tripList.containsKey(tripId)) {
+            tripId = new Random().nextLong();
+        }
+
+        // get all related flights from List<Long> of flightIDs
+        List<Flight> flightsArrayList = new ArrayList<>();
+        for (Long flightId : flightsInTrip) {
+            Flight getFlight = flightList.get(flightId);
+            flightsArrayList.add(getFlight);
+            getFlight.adjustSeatsForBooking();  // will adjust seatsBooked and seatsAvailable for each leg
+        }
+
+        // create new trip from the current trip flight list
+        Trip trip = new Trip(tripId, customerId, flightsArrayList);
+        addToTripList(tripId, trip);
+
+        return tripId;
+    }
+
     public static void writeCustomerData() throws IOException {
-        Files.writeString(Paths.get(path, customerFile), "XXXXXXXXXXXXXXXXXXXXXXX\n");
         for (Map.Entry<Long, Traveler> entry : getCustomerList().entrySet()) {
             Traveler thisCustomer = entry.getValue();
             Long id = thisCustomer.getId();

@@ -16,6 +16,11 @@ public class Trip {
         flights = new ArrayList<>();
     }
 
+    public Trip(long id, long customerId, Collection<Flight> flights) {
+        this(id, customerId);
+        this.flights = flights;
+    }
+
     public void addFlight(Flight flight) {
         flights.add(flight);
     }

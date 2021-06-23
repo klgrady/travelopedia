@@ -154,16 +154,25 @@ public class Flight {
             return price;
         }
 
-        public int getSeatCapacity() {
+        private int getSeatCapacity() {
             return seatCapacity;
         }
 
-        public int getSeatsAvailable() {
+        private int getSeatsAvailable() {
             return seatsAvailable;
         }
 
-        public int getSeatsBooked() {
+        private int getSeatsBooked() {
             return seatsBooked;
+        }
+
+        private boolean adjustBookingSeats() {
+            if (isSeatAvailable()) {
+                seatsAvailable--;
+                seatsBooked++;
+                return true;
+            }
+            return false;
         }
 
         private void setPrice(double price) {
@@ -189,6 +198,12 @@ public class Flight {
             }
         }
         return result;
+    }
+
+    public void adjustSeatsForBooking() {
+        for (Leg leg : getLegs()) {
+            adjustSeatsForBooking();
+        }
     }
 
     public String dumpFlights() {
