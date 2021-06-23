@@ -1,4 +1,4 @@
-package com.travelopedia.controller;
+package com.travelopedia.client;
 
 import com.travelopedia.view.*;
 import com.travelopedia.view.TicketWindowFactory;
@@ -10,7 +10,6 @@ import java.awt.*;
 public class Travelopedia {
 
     public static void main(String[] args) {
-        // consoleStart();
         int newTicket;
         do {
              TicketWindow ticketWindow = TicketWindowFactory.createTicketWindow();
@@ -24,30 +23,6 @@ public class Travelopedia {
         }while(newTicket == 0);
     }
 
-/*    private static void consoleStart() {
-        String choice = getMainMenuOptions();
-        while (!choice.toLowerCase().equals("x")) {
-            switch (choice.toLowerCase()) {
-                case "s":
-                    choice = SearchMenu.doSubMenu();
-                    break;
-                case "v":
-                    choice = ViewMenu.doSubMenu();
-                    break;
-                default:
-                    choice = getMainMenuOptions();
-            }
-            System.out.println();
-        }
-        System.out.println("Thank you for traveling with Travelopedia!");
 
-    }
-    private static String getMainMenuOptions() {
-        String choice;
-        MainMenu.setMenuItems();
-        MainMenu.displayMenu();
-        choice = MainMenu.promptForInput();
-        return choice;
-    }*/
 
 }
