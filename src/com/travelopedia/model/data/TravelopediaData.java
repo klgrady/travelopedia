@@ -106,7 +106,9 @@ public class TravelopediaData {
         // get all related flights from List<Long> of flightIDs
         List<Flight> flightsArrayList = new ArrayList<>();
         for (Long flightId : flightsInTrip) {
-            flightsArrayList.add(flightList.get(flightId));
+            Flight getFlight = flightList.get(flightId);
+            flightsArrayList.add(getFlight);
+            getFlight.adjustSeatsForBooking();  // will adjust seatsBooked and seatsAvailable for each leg
         }
 
         // create new trip from the current trip flight list
@@ -117,7 +119,6 @@ public class TravelopediaData {
     }
 
     public static void writeCustomerData() throws IOException {
-        Files.writeString(Paths.get(path, customerFile), "XXXXXXXXXXXXXXXXXXXXXXX\n");
         for (Map.Entry<Long, Traveler> entry : getCustomerList().entrySet()) {
             Traveler thisCustomer = entry.getValue();
             Long id = thisCustomer.getId();
