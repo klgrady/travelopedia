@@ -42,6 +42,7 @@ public class Flight {
             legInfo.add(leg.getArrivalLocationName());
             legInfo.add(leg.getCarrierName());
             legInfo.add(Double.toString(leg.getPrice()));
+            legInfo.add(Integer.toString(leg.getSeatsAvailable()));
             itinerary.put(leg.getDepartureDateTime(), legInfo);
         }
         return itinerary;
@@ -49,6 +50,10 @@ public class Flight {
 
     private List<Leg> getLegs() {
         return legs;
+    }
+
+    public LocalDateTime getDepartureDate() {
+        return legs.get(0).departureDateTime;
     }
 
     //inner class
@@ -119,11 +124,11 @@ public class Flight {
         }
 
         private String getDepartureLocationGeo() {
-            return departureLocation.getLocation();
+            return departureLocation.getAirportCity();
         }
 
         private String getDepartureLocationName() {
-            return departureLocation.getName();
+            return departureLocation.getAirportCode();
         }
 
         private void setDepartureLocation(Airport departureLocation) {
@@ -134,11 +139,11 @@ public class Flight {
             return arrivalLocation;
         }
         private String getArrivalLocationGeo() {
-            return arrivalLocation.getLocation();
+            return arrivalLocation.getAirportCity();
         }
 
         private String getArrivalLocationName() {
-            return arrivalLocation.getName();
+            return arrivalLocation.getAirportCode();
         }
 
         private void setArrivalLocation(Airport arrivalLocation) {
@@ -166,11 +171,26 @@ public class Flight {
         }
 
 
-        public Object getId() {
+        public Long getId() {
             return id;
         }
 
     }
+
+    public Long getId() {
+        return getLegs().get(0).getId();
+    }
+
+    public boolean isSeatAvailable() {
+        boolean result = true;
+        for (Leg leg : getLegs()) {
+            if (leg.getSeatsAvailable() == 0) {
+                result = false;
+            }
+        }
+        return result;
+    }
+
     public String dumpFlights() {
         String result = "";
         for (Leg leg : getLegs()) {
@@ -180,6 +200,7 @@ public class Flight {
         }
         return result;
     }
+
     public String toString() {
         String result = "Flights:\n";
         for (Leg leg : getLegs()) {

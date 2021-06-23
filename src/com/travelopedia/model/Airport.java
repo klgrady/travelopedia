@@ -1,4 +1,5 @@
 package com.travelopedia.model;
+
 // this was previously location code. I changed it to Airport to match the db. added new property Airport ID, Airport Code and Airport City
 
 public enum Airport {
@@ -42,4 +43,3 @@ public enum Airport {
     public String getAirportCity() {
         return AirportCity;
     }
-}

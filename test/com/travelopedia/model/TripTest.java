@@ -76,7 +76,7 @@ public class TripTest {
 
     @Test
     public void tripContainsCorrectNumberOfFlights() {
-        Collection<Flight> flights = new ArrayList<>();
+        List<Flight> flights = new ArrayList<>();
         flights.add(flight1);
         assertEquals(flights.size(), trip.getFlights().size());
     }

@@ -16,10 +16,10 @@ public class AirportTest {
 
     @Test
     public void LocationCodeReturnsCorrectNames() {
-        assertEquals("Phoenix Sky Harbor International", Airport.PHX.getAirportCode());
-        assertEquals("Washington Dulles International", Airport.IAD.getAirportCode());
-        assertEquals("San Francisco International", Airport.SFO.getAirportCode());
-        assertEquals("Los Angeles International", Airport.LAX.getAirportCode());
-        assertEquals("Minneapolis St. Paul International", Airport.MSP.getAirportCode());
+        assertEquals("PHX", Airport.PHX.getAirportCode());
+        assertEquals("IAD", Airport.IAD.getAirportCode());
+        assertEquals("SFO", Airport.SFO.getAirportCode());
+        assertEquals("LAX", Airport.LAX.getAirportCode());
+        assertEquals("MSP", Airport.MSP.getAirportCode());
     }
 }
