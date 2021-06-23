@@ -1,6 +1,5 @@
 package com.travelopedia.model.data;
 
-import com.travelopedia.controller.Travelopedia;
 import com.travelopedia.model.Flight;
 import com.travelopedia.model.Traveler;
 import junit.framework.TestCase;
