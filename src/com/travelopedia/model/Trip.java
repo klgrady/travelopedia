@@ -48,4 +48,13 @@ public class Trip {
     public void setFlightIds(Collection<Flight> flightIds) {
         this.flights = flights;
     }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for (Flight flight : getFlights()) {
+            result += tripId + "," + customerId + "," + flight.getId() + "\n";
+        }
+        return result;
+    }
 }

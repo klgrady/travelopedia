@@ -131,4 +131,10 @@ public class Traveler {
     public List<Trip> getTrips() {
         return this.trips;
     }
+
+    @Override
+    public String toString() {
+        return  id + "," + fname + "," + lname + "," + password + "," + email + "," + phone + "," + streetAddress +
+                "," + city + "," + state + "," + zip + "," + ccNum + "," + trips + "\n";
+    }
 }
