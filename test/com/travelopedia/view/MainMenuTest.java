@@ -9,11 +9,12 @@ import java.util.Map;
 
 public class MainMenuTest {
     Map<String,String> testMap;
+    MainMenu menu = new MainMenu();
 
     @Test
     public void testMainMenuOutputNotNull() {
-        MainMenu.setMenuItems();
-        Assert.assertNotNull(MainMenu.getMenuItems());
+        menu.setMenuItems();
+        Assert.assertNotNull(menu.getMenuItems());
     }
 
     @Test
@@ -22,7 +23,7 @@ public class MainMenuTest {
         testMap.put("s",  "Search for flights");
         testMap.put("v", "View my trip");
         testMap.put("x", "Exit Travelopedia");
-        MainMenu.setMenuItems();
-        Assert.assertEquals(testMap, MainMenu.getMenuItems());
+        menu.setMenuItems();
+        Assert.assertEquals(testMap, menu.getMenuItems());
     }
 }

@@ -2,16 +2,17 @@ package com.travelopedia.view;
 
 import java.util.*;
 
-public class TravelopediaMenu {
-    static Map<String,String> menuItems = new LinkedHashMap<>();
-    static String prompt = "Your choice: ";
+public abstract class TravelopediaMenu {
     static final String errorMessage = "I'm sorry. I didn't understand your request. Please choose a single character from the following menu:";
+    Map<String,String> menuItems;
+    String prompt = "Your choice: ";
 
-    static String getPrompt() {
+
+    public String getPrompt() {
         return prompt;
     }
 
-    public static void displayMenu() {
+    public void displayMenu() {
         for (Map.Entry<String,String> entry : menuItems.entrySet()) {
             System.out.println("(" + entry.getKey() + ")" + " " + entry.getValue());
         }
@@ -19,7 +20,7 @@ public class TravelopediaMenu {
     }
 
 
-    public static String promptForInput() {
+    public String promptForInput() {
         String input = "";
         Scanner sc = new Scanner(System.in);
         System.out.println(getPrompt());
@@ -34,4 +35,6 @@ public class TravelopediaMenu {
         }
         return input;
     }
+
+    public abstract void doMenu();
 }

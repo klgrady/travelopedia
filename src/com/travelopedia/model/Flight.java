@@ -48,12 +48,29 @@ public class Flight {
         return itinerary;
     }
 
+    public String returnFlightInfo() {
+        String departureDate = legs.get(0).getDepartureDateTime().toString();
+        String departureLoc = legs.get(0).getDepartureLocationName();
+        String departureLocGeo = legs.get(0).getDepartureLocationGeo();
+        String arrivalDate = legs.get(0).getArrivalDateTime().toString();
+        String arrivalLoc = legs.get(0).getArrivalLocationName();
+        String arrivalLocGeo = legs.get(0).getArrivalLocationGeo();
+        String price = Double.toString(legs.get(0).getPrice());
+        String result = "Depart: " + departureDate + " " + departureLoc + " (" + departureLocGeo + "), Arrive: " +
+                arrivalDate + " " + arrivalLoc + " (" + arrivalLocGeo + "), Price: " + price;
+        return result;
+    }
+
     private List<Leg> getLegs() {
         return legs;
     }
 
     public LocalDateTime getDepartureDate() {
         return legs.get(0).departureDateTime;
+    }
+
+    public Airport getDepartureLocation() {
+        return legs.get(0).departureLocation;
     }
 
     //inner class
@@ -201,9 +218,7 @@ public class Flight {
     }
 
     public void adjustSeatsForBooking() {
-        for (Leg leg : getLegs()) {
-            adjustSeatsForBooking();
-        }
+        getLegs().get(0).adjustBookingSeats();
     }
 
     public String dumpFlights() {
@@ -217,11 +232,12 @@ public class Flight {
     }
 
     public String toString() {
-        String result = "Flights:\n";
+        String result = "";
         for (Leg leg : getLegs()) {
-            result += "ID=" + leg.getId() + ": Airline=" + leg.getCarrier() + ", Departure=" + leg.getDepartureDateTime().toString() + " from " +
-                    leg.getDepartureLocationName() + ", Arrival=" + leg.getArrivalDateTime().toString() + " at " + leg.getArrivalLocationName() + ", Seat capacity=" +
-                    leg.getSeatCapacity() + ", Booked=" + leg.getSeatsBooked() + ", Remaining=" + leg.getSeatsAvailable();
+            result += leg.getId() + "," + leg.getCarrier() + "," + leg.getDepartureLocationName() +
+                    "," + leg.getArrivalLocationName() + "," +leg.getDepartureDateTime().toString() + "," +
+                    leg.getArrivalDateTime().toString() + ", " +
+                    leg.getSeatCapacity() + "," + leg.getSeatsBooked() + "," + leg.getSeatsAvailable();
         }
         return result;
     }

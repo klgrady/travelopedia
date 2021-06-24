@@ -11,13 +11,9 @@ import java.util.Map;
 public class TravelopediaDataTest extends TestCase {
 
     public void testGetCustomerList() {
-        try {
-            TravelopediaData database = new TravelopediaData();
-            for (Map.Entry<Long, Traveler> entry : database.getCustomerList().entrySet()) {
-                System.out.println(entry.getValue().getId() + " " + entry.getValue().getLname());
-            }
-        } catch (IOException e) {
-            System.out.println(e);
+        TravelopediaData database = new TravelopediaData();
+        for (Map.Entry<Long, Traveler> entry : database.getCustomerList().entrySet()) {
+            System.out.println(entry.getValue().getId() + " " + entry.getValue().getLname());
         }
     }
 
@@ -29,13 +25,9 @@ public class TravelopediaDataTest extends TestCase {
 
     @Test
     public void testWriteFlightData() {
-        try {
-            TravelopediaData database = new TravelopediaData();
-            for (Map.Entry<Long, Flight> entry : database.getFlightList().entrySet()) {
-                entry.getValue().dumpFlights();
-            }
-        } catch (IOException e) {
-            System.out.println(e);
+        TravelopediaData database = new TravelopediaData();
+        for (Map.Entry<Long, Flight> entry : database.getFlightList().entrySet()) {
+            entry.getValue().dumpFlights();
         }
     }
 

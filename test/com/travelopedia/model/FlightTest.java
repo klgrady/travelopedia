@@ -72,4 +72,9 @@ public class FlightTest {
     public void flightContainsCorrectLegs() {
         assertEquals(itinerary, flight1.getItinerary());
     }
+
+    @Test
+    public void toStringIsCorrect() {
+        System.out.println(flight1.toString());
+    }
 }

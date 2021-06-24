@@ -2,14 +2,17 @@ package com.travelopedia.controller;
 
 import com.travelopedia.model.Airport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AirportsAccess {
 
-    public static String[] getAirportLocations() {
+    public static List<String> getAirportLocations() {
         Airport[] locations = Airport.class.getEnumConstants();
-        String[] result = new String[14];
+        List<String> result = new ArrayList<>();
         int i = 0;
         for (Airport location : locations) {
-            result[i++] = location.toString();
+            result.add(location.getAirportCode());
         }
         return result;
     }
