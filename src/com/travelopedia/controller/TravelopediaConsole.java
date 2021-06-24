@@ -1,6 +1,5 @@
 package com.travelopedia.controller;
 
-import com.sun.tools.javac.Main;
 import com.travelopedia.model.Airport;
 import com.travelopedia.model.Flight;
 import com.travelopedia.model.data.TravelopediaData;
@@ -48,16 +47,21 @@ public class TravelopediaConsole {
                     searchMenu.getSearchInfo(input, depart);
                     choice = nextChoice();
                     break;
-                case "i":
+                case "e":
                     Long customerId = TravelerAccess.getCustIdByEmail();
                     List<Flight> flights = TripAccess.getAllCustomerTripsList(customerId);
                     Long flightID = viewMenu.chooseFlight(flights);
                     if (flightID.equals(0L)) {
-                        System.out.println("No flights were found for this email address.\n");
-                        choice = nextChoice();
-                        break;
+                        System.out.println("\nSorry, no flights were found for this email address.\n");
+                    } else {
+                        printFlightDetails(flightID);
                     }
-                    System.out.println(FlightsAccess.getPrintableItinerary(flightID));
+                    choice = nextChoice();
+                    break;
+                case "i":
+                    viewMenu.promptForItinerary();
+                    Long viewFlightID = Long.parseLong(getInput());
+                    printFlightDetails(viewFlightID);
                     choice = nextChoice();
                     break;
                 default:
@@ -68,8 +72,13 @@ public class TravelopediaConsole {
         new TravelopediaData().record();
     }
 
+    private void printFlightDetails(Long flightID) {
+        System.out.println(FlightsAccess.getPrintableItinerary(flightID));
+    }
+
     private String nextChoice() {
         String choice;
+        System.out.println("\n\n\nTRAVELOPEDIA\n");
         mainMenu.displayMenu();
         System.out.println("What would you like to do next? ");
         choice = getInput().toLowerCase();

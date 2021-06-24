@@ -39,4 +39,9 @@ public class ViewMenu extends TravelopediaMenu {
         result = Long.parseLong(sc.next());
         return result;
     }
+
+    public void promptForItinerary() {
+        System.out.println("What is the flight number?");
+        System.out.print("> ");
+    }
 }
