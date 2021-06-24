@@ -20,7 +20,6 @@ public class TravelopediaConsole {
     }
 
     public void consoleStart() {
-        Airport depart = null;
         mainMenu.displayMenu();
         String choice = getInput().toLowerCase();
         while (!choice.equals("x")) {
@@ -36,16 +35,8 @@ public class TravelopediaConsole {
                     choice = getInput().toLowerCase();
                     break;
                 case "d":
-                    String departureLoc = searchMenu.getDepartureLoc();
-                    try {
-                        depart = Airport.valueOf(departureLoc);
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("Sorry, we do not serve that location. Pick another, please.");
-                        searchMenu.doMenu();
-                    }
-                    String input = searchMenu.getDate();
-                    searchMenu.getSearchInfo(input, depart);
-                    choice = nextChoice();
+                    runSearch();
+                    choice = "m";
                     break;
                 case "e":
                     Long customerId = TravelerAccess.getCustIdByEmail();
@@ -70,6 +61,22 @@ public class TravelopediaConsole {
         }
         System.out.println("Thank you for traveling with Travelopedia!");
         new TravelopediaData().record();
+    }
+
+    public void runSearch() {
+        Airport depart = null;
+        String departureLoc = searchMenu.getDepartureLoc();
+        try {
+            depart = Airport.valueOf(departureLoc);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Sorry, we do not serve that location. Pick another, please.");
+            searchMenu.doMenu();
+        }
+        String input = searchMenu.getDate();
+        if (input.equals("x")) {
+            return;
+        }
+        searchMenu.getSearchInfo(input, depart);
     }
 
     private void printFlightDetails(Long flightID) {

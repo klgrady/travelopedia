@@ -234,8 +234,9 @@ public class Flight {
     public String toString() {
         String result = "";
         for (Leg leg : getLegs()) {
-            result += leg.getId() + "," + leg.getCarrier() + "," + leg.getDepartureDateTime().toString() + "," +
-                    leg.getDepartureLocationName() + "," + leg.getArrivalDateTime().toString() + "," + leg.getArrivalLocationName() + "," +
+            result += leg.getId() + "," + leg.getCarrier() + "," + leg.getDepartureLocationName() +
+                    "," + leg.getArrivalLocationName() + "," +leg.getDepartureDateTime().toString() + "," +
+                    leg.getArrivalDateTime().toString() + ", " +
                     leg.getSeatCapacity() + "," + leg.getSeatsBooked() + "," + leg.getSeatsAvailable();
         }
         return result;

@@ -87,4 +87,9 @@ public class TripTest {
             assertArrayEquals(flight1.getItinerary().entrySet().toArray(), flight.getItinerary().entrySet().toArray());
         }
     }
+
+    @Test
+    public void testCorrectToString() {
+        System.out.println(flight1.toString());
+    }
 }

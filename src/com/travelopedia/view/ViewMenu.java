@@ -32,7 +32,7 @@ public class ViewMenu extends TravelopediaMenu {
         }
         System.out.println("Enter the (Flight ID) to see the flight's itinerary:");
         for (Flight flight : flights) {
-            System.out.println("(" + flight.getId() + ") " + flight.getDepartureDate() + " " + flight.getDepartureLocation());
+            System.out.println("Flight (" + flight.getId() + ") Departing " + flight.getDepartureDate() + " on " + flight.getDepartureLocation());
         }
         Scanner sc = new Scanner(System.in);
         System.out.print("> ");

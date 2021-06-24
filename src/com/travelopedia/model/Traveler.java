@@ -134,7 +134,7 @@ public class Traveler {
 
     @Override
     public String toString() {
-        return  id + "," + fname + "," + lname + "," + password + "," + email + "," + phone + "," + streetAddress +
-                "," + city + "," + state + "," + zip + "," + ccNum + "," + trips + "\n";
+        return  getId() + "," + getFname().replaceAll(",", "") + "," + getLname().replaceAll(",", "") + "," + getEmail().replaceAll(",", "") + "," + getPhone().replaceAll(",", "") + "," + getStreetAddress().replaceAll(",", "") +
+                "," + getCity().replaceAll(",", "") + "," + getState().replaceAll(",", "") + "," + getZip().replaceAll(",", "") + "," + getCcNum().replaceAll(",", "") + "\n";
     }
 }

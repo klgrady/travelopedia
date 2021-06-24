@@ -4,16 +4,15 @@ import com.travelopedia.model.Flight;
 import com.travelopedia.model.Trip;
 import com.travelopedia.model.data.TravelopediaData;
 
-import java.lang.reflect.Array;
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class TripAccess {
     private static final int RESULT_LIMIT = 20;
+    private static TravelopediaData database = new TravelopediaData();
 
     public static List<Flight> getAllCustomerTripsList(Long customerID) {
         List<Flight> results = new ArrayList<>();
-        Map<Long, Trip> matchingTrips = new TravelopediaData().getTripList();
+        Map<Long, Trip> matchingTrips = database.getTripList();
         for (Map.Entry<Long, Trip> tripEntry : matchingTrips.entrySet()) {
             if (tripEntry.getValue().getCustomerId().equals(customerID)) {
                 Collection<Flight> allFlights = tripEntry.getValue().getFlights();
@@ -27,7 +26,7 @@ public class TripAccess {
     public static String[][] getAllCustomerTrips(Long customerID) {
         String[][] results = new String[RESULT_LIMIT][2];
         int index = 0;
-        Map<Long, Trip> matchingTrips = new TravelopediaData().getTripList();
+        Map<Long, Trip> matchingTrips = database.getTripList();
         for (Map.Entry<Long, Trip> tripEntry : matchingTrips.entrySet()) {
             if (tripEntry.getValue().getCustomerId().equals(customerID)) {
                 results[index][0] = tripEntry.getValue().getCustomerId().toString();
@@ -42,6 +41,6 @@ public class TripAccess {
     }
 
     public static Long bookNewTrip(Long customerID, Long flightID) {
-        return new TravelopediaData().recordNewTrip(flightID, customerID);  // returns TripID as a Long
+        return database.recordNewTrip(flightID, customerID);  // returns TripID as a Long
     }
 }

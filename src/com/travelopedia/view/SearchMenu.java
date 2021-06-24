@@ -38,7 +38,8 @@ public class SearchMenu extends TravelopediaMenu {
                 System.out.println("There are no matching results for that date.");
             }
         } catch (DateTimeParseException e) {
-            System.out.println(input + ": Incorrect date format. Please use YYYY-MM-DD, e.g. 2021-06-02\n> ");
+            System.out.println(input + ": Incorrect date format. Please use YYYY-MM-DD, e.g. 2021-06-02");
+            System.out.print("> ");
             Scanner sc = new Scanner(System.in);
             callSearch(sc.next());
         }
@@ -50,13 +51,25 @@ public class SearchMenu extends TravelopediaMenu {
         displayMenu();
     }
 
+    public String reRunSearch(Airport depart) {
+        String input = getDate();
+        getSearchInfo(input, depart);
+        Scanner sc = new Scanner(System.in);
+        if (sc.equals("x")) {
+            return "";
+        }
+        return getFlightNumber(input, depart);
+    }
+
     public void getSearchInfo(String input, Airport depart) {
         String choice = getFlightNumber(input, depart);
-        if (choice == null || choice.equals("x") || choice.equals("s")) return;
+        if (choice.equals("d")) {
+            choice = reRunSearch(depart);
+        }
+        if (choice == null || choice.equals("") || choice.equals("x") || choice.equals("s")) return;
         Long customerID = TravelerAccess.createCustomer();
         TripAccess.bookNewTrip(customerID, Long.parseLong(choice));
         System.out.println("Enjoy your trip to " + depart.getAirportCity() + "!");
-        System.out.println("\n\n");
     }
 
     public String getDepartureLoc() {
@@ -65,23 +78,31 @@ public class SearchMenu extends TravelopediaMenu {
             System.out.println("(" + location.getAirportCode() + ")  " + location.getAirportCity());
         }
         Scanner sc = new Scanner(System.in);
-        System.out.println("> ");
+        System.out.print("> ");
         return sc.next().toUpperCase();
     }
 
     private String getFlightNumber(String input, Airport depart) {
         Map<Long,Flight> results = callSearch(input);
-        printResults(results, depart);
-        System.out.println("Choose a (flight number) to purchase\n> ");
-        Scanner sc = new Scanner(System.in);
-        String choice = sc.next();
+        String choice = "";
+        if (!(results == null) && !results.isEmpty()) {
+            printResults(results, depart);
+            System.out.println("Choose a (flight number) to purchase");
+            System.out.print("> ");
+            Scanner sc = new Scanner(System.in);
+            choice = sc.next();
+        } else {
+            System.out.println("Looks like we don't have any flights around that date. Please try a date within the next 30 days.");
+            choice = "d";
+        }
         return choice;
     }
 
     public String getDate() {
         String input;
         Scanner sc = new Scanner(System.in);
-        System.out.println("What is your departure date? Please use YYYY-MM-DD format (e.g. 2021-06-02)\n> ");
+        System.out.println("What is your departure date? Please use YYYY-MM-DD format (e.g. 2021-06-02)");
+        System.out.print("> ");
         input = sc.next();
         return input;
     }
