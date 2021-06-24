@@ -8,7 +8,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" scope="TEST" name="junit-4.13" level="project" />
     <orderEntry type="module-library" exported="" scope="TEST">
       <library>
         <CLASSES>
@@ -30,7 +29,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../IntmJ/Software/junit-4.13/lib/mysql-connector-java-8.0.25.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-8.0.25.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
