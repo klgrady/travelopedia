@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-public class MainMenuTest {
+public class TravelopediaConsoleClientMenuTest {
     Map<String,String> testMap;
     MainMenu menu = new MainMenu();
 

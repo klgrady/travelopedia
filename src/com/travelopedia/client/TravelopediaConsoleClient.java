@@ -1,11 +1,9 @@
 package com.travelopedia.client;
 
-import com.apps.util.SplashApp;
 import com.travelopedia.controller.AirportsAccess;
 import com.travelopedia.controller.TravelopediaConsole;
-import com.travelopedia.model.Airport;
 
-public class TravelopediaConsoleClient implements SplashApp {
+public class TravelopediaConsoleClient {
 
     public static void main(String[] args) {
         TravelopediaConsoleClient client = new TravelopediaConsoleClient();
@@ -13,7 +11,6 @@ public class TravelopediaConsoleClient implements SplashApp {
         client.start();
     }
 
-    @Override
     public void start() {
         TravelopediaConsole console = new TravelopediaConsole();
         System.out.println("T R A V E L O P E D I A: Go where you want!");
