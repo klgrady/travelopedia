@@ -96,18 +96,21 @@ public class TravelopediaData {
 
     static void writeCustomerData() throws IOException {
         for (Map.Entry<Long,Traveler> customer : customerList.entrySet()) {
+            System.out.println(customer.toString());
             Files.writeString(FileSystems.getDefault().getPath(path, customerFile), customer.toString());
         }
     }
 
     private static void writeTripData() throws IOException {
         for (Map.Entry<Long,Trip> trip : tripList.entrySet()) {
+            System.out.println(trip.toString());
             Files.writeString(FileSystems.getDefault().getPath(path, tripFile), trip.toString());
         }
     }
 
     private static void writeFlightData() throws IOException {
         for (Map.Entry<Long,Flight> flight : flightList.entrySet()) {
+            System.out.println(flight.toString());
             Files.writeString(FileSystems.getDefault().getPath(path, flightFile), flight.toString());
         }
     }
