@@ -123,6 +123,15 @@ public class TravelopediaData {
     }
 
     private void addToTripList(Long key, Trip trip) {
+        List<Flight> flights = new ArrayList<>();
+        for (Flight fl : trip.getFlights()) {
+            flights.add(fl);
+        }
+        if (tripList.containsKey(key)) {
+            for (Flight fl : tripList.get(key).getFlights()) {
+                flights.add(fl);
+            }
+        }
         tripList.put(key, trip);
     }
 
@@ -130,7 +139,7 @@ public class TravelopediaData {
         // create new TripID that doesn't already exist
         Long tripId = 0L;
         while (tripId > 0L && !tripList.containsKey(tripId)) {
-            tripId = new Random().nextLong();
+            tripId = Math.abs(new Random().nextLong());
         }
 
         // get all related flights from List<Long> of flightIDs
